@@ -1,3 +1,5 @@
+import { DK_NGUOI_DUNG } from "../types/BaiTapDatVeType";
+
 const stateDefault = {
   mangNguoiDung: [
     {
@@ -14,10 +16,20 @@ const stateDefault = {
 
 const QuanDSNguoiDungReducer = (state = stateDefault, action) => {
   switch (action.type) {
-    default:
+    case DK_NGUOI_DUNG:
+      {
+        // thêm dữ liệu người dùng mới vào mangNguoiDung
+        const mangNguoiDungUpdate = [...state.mangNguoiDung, action.nguoiDung];
+        state.mangNguoiDung = mangNguoiDungUpdate;
+        return { ...state };
+        console.log(action);
+      }
       break;
+
+    default: {
+      return { ...state };
+    }
   }
-  return { ...state };
 };
 
 export default QuanDSNguoiDungReducer;
