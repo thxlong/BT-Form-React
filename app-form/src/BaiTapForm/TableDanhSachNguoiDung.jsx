@@ -14,14 +14,14 @@ class TableDanhSachNguoiDung extends Component {
           <td>{nguoiDung.email}</td>
           <td>{nguoiDung.soDienThoai}</td>
           <td>{nguoiDung.loaiNguoiDung}</td>
-          <button className="btn btn-info">Chỉnh sửa</button>
+          <button className="btn btn-info mr-3">Chỉnh sửa</button>
           <button className="btn btn-danger">Xoá</button>
         </tr>
       );
     });
   };
   render() {
-    console.log("render", this.props.mangSinhVien);
+    // console.log("render", this.props.mangSinhVien);
     return (
       <div className="container">
         <table className="table">

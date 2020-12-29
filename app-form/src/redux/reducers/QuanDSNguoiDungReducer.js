@@ -16,16 +16,12 @@ const stateDefault = {
 
 const QuanDSNguoiDungReducer = (state = stateDefault, action) => {
   switch (action.type) {
-    case DK_NGUOI_DUNG:
-      {
-        // thêm dữ liệu người dùng mới vào mangNguoiDung
-        const mangNguoiDungUpdate = [...state.mangNguoiDung, action.nguoiDung];
-        state.mangNguoiDung = mangNguoiDungUpdate;
-        return { ...state };
-        console.log(action);
-      }
-      break;
-
+    case DK_NGUOI_DUNG: {
+      // thêm dữ liệu người dùng mới vào mangNguoiDung
+      const mangNguoiDungUpdate = [...state.mangNguoiDung, action.nguoiDung];
+      state.mangNguoiDung = mangNguoiDungUpdate;
+      return { ...state };
+    }
     default: {
       return { ...state };
     }
