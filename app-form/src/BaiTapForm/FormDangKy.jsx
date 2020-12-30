@@ -151,7 +151,9 @@ class FormDangKy extends Component {
                     {/* <button type="submit" className="btn btn-success mr-3">
                       Đăng ký
                     </button> */}
-                    <button className="btn btn-info">Cập nhật</button>
+                    <button className="btn btn-info" onClick={() => {}}>
+                      Cập nhật
+                    </button>
                   </div>
                 </div>
 

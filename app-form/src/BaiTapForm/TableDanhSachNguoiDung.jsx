@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { XOA_NGUOI_DUNG } from "../redux/types/BaiTapDatVeType";
+import { XOA_NGUOI_DUNG, SUA_NGUOI_DUNG } from "../redux/types/BaiTapDatVeType";
 
 class TableDanhSachNguoiDung extends Component {
   renderDanhSachNguoiDung = () => {
@@ -15,7 +15,16 @@ class TableDanhSachNguoiDung extends Component {
           <td>{nguoiDung.email}</td>
           <td>{nguoiDung.soDienThoai}</td>
           <td>{nguoiDung.loaiNguoiDung}</td>
-          <button className="btn btn-info mr-3">Chỉnh sửa</button>
+          <button
+            className="btn btn-info mr-3"
+            onClick={() => {
+              this.props.dispatch({
+                type: SUA_NGUOI_DUNG,
+              });
+            }}
+          >
+            Chỉnh sửa
+          </button>
           <button
             className="btn btn-danger"
             onClick={() => {
@@ -66,7 +75,6 @@ const mapDispatchToProps = (dispatch) => {
         type: XOA_NGUOI_DUNG,
         tkNDXoa: tkNDClicked,
       };
-
       dispatch(action);
     },
   };
