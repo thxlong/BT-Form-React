@@ -8,7 +8,7 @@ class TableDanhSachNguoiDung extends Component {
     return mangNguoiDung.map((nguoiDung, index) => {
       return (
         <tr key={index}>
-          <td>{nguoiDung.soTT + 1}</td>
+          <td>{nguoiDung.soTT}</td>
           <td>{nguoiDung.taiKhoan}</td>
           <td>{nguoiDung.hoTen}</td>
           <td>{nguoiDung.matKhau}</td>
@@ -19,10 +19,7 @@ class TableDanhSachNguoiDung extends Component {
           <button
             className="btn btn-danger"
             onClick={() => {
-              this.props.dispatch({
-                type: XOA_NGUOI_DUNG,
-                nguoiDung,
-              });
+              this.props.xoaNguoiDung(nguoiDung.taiKhoan);
             }}
           >
             Xoá
@@ -62,4 +59,20 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(TableDanhSachNguoiDung);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    xoaNguoiDung: (tkNDClicked) => {
+      const action = {
+        type: XOA_NGUOI_DUNG,
+        tkNDXoa: tkNDClicked,
+      };
+
+      dispatch(action);
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TableDanhSachNguoiDung);

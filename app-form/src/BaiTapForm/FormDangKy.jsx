@@ -95,6 +95,15 @@ class FormDangKy extends Component {
               <div className="row">
                 {/* row trái */}
                 <div className="form-group col-6">
+                  <span>Số thứ tự</span>
+                  <input
+                    className="form-control"
+                    name="soTT"
+                    value={this.state.values.soTT}
+                    onChange={this.handleChange}
+                  />
+                  <p className="text-danger">{this.state.errors.soTT}</p>
+
                   <span>Tài khoản</span>
                   <input
                     className="form-control"
