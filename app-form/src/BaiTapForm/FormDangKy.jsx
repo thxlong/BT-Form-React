@@ -73,7 +73,7 @@ class FormDangKy extends Component {
     let valid = true;
     for (let key in this.state.errors) {
       // duyệt tất cả thuộc tính của đối tượng thì dụng for in <> duyệt thuộc tính của mảng thì dùng for of
-      if (this.state.errors[key] !== "" || this.state.values[key] == "") {
+      if (this.state.errors[key] !== "" || this.state.values[key] === "") {
         valid = false;
       }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { XOA_NGUOI_DUNG } from "../redux/types/BaiTapDatVeType";
 
 class TableDanhSachNguoiDung extends Component {
   renderDanhSachNguoiDung = () => {
@@ -7,7 +8,7 @@ class TableDanhSachNguoiDung extends Component {
     return mangNguoiDung.map((nguoiDung, index) => {
       return (
         <tr key={index}>
-          <td>{nguoiDung.soTT}</td>
+          <td>{nguoiDung.soTT + 1}</td>
           <td>{nguoiDung.taiKhoan}</td>
           <td>{nguoiDung.hoTen}</td>
           <td>{nguoiDung.matKhau}</td>
@@ -15,7 +16,17 @@ class TableDanhSachNguoiDung extends Component {
           <td>{nguoiDung.soDienThoai}</td>
           <td>{nguoiDung.loaiNguoiDung}</td>
           <button className="btn btn-info mr-3">Chỉnh sửa</button>
-          <button className="btn btn-danger">Xoá</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              this.props.dispatch({
+                type: XOA_NGUOI_DUNG,
+                nguoiDung,
+              });
+            }}
+          >
+            Xoá
+          </button>
         </tr>
       );
     });
