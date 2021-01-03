@@ -94,17 +94,17 @@ const QuanDSNguoiDungReducer = (state = stateDefault, action) => {
       const mangNguoiDungCapNhat = [...state.mangNguoiDung];
 
       let ndUpdate = mangNguoiDungCapNhat.find(
-        (nguoiDung) =>
-          nguoiDung.taiKhoan === state.nguoiDungRedux.values.taiKhoan
+        (nguoiDung) => nguoiDung.taiKhoan === action.tkNDSua
       );
 
+      debugger;
       if (ndUpdate) {
-        ndUpdate.soTT = state.nguoiDungRedux.values.soTT;
-        ndUpdate.hoTen = state.nguoiDungRedux.values.hoTen;
-        ndUpdate.matKhau = state.nguoiDungRedux.values.matKhau;
-        ndUpdate.soDienThoai = state.nguoiDungRedux.values.soDienThoai;
-        ndUpdate.email = state.nguoiDungRedux.values.email;
-        ndUpdate.loaiNguoiDung = state.nguoiDungRedux.values.loaiNguoiDung;
+        ndUpdate.soTT = state.mangNguoiDung.soTT;
+        ndUpdate.hoTen = state.mangNguoiDung.hoTen;
+        ndUpdate.matKhau = state.mangNguoiDung.matKhau;
+        ndUpdate.soDienThoai = state.mangNguoiDung.soDienThoai;
+        ndUpdate.email = state.mangNguoiDung.email;
+        ndUpdate.loaiNguoiDung = state.mangNguoiDung.loaiNguoiDung;
       }
       state.mangNguoiDung = mangNguoiDungCapNhat;
 

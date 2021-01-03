@@ -18,9 +18,7 @@ class TableDanhSachNguoiDung extends Component {
           <button
             className="btn btn-info mr-3"
             onClick={() => {
-              this.props.dispatch({
-                type: SUA_NGUOI_DUNG,
-              });
+              this.props.suaNguoiDung(nguoiDung.taiKhoan);
             }}
           >
             Chỉnh sửa
@@ -74,6 +72,13 @@ const mapDispatchToProps = (dispatch) => {
       const action = {
         type: XOA_NGUOI_DUNG,
         tkNDXoa: tkNDClicked,
+      };
+      dispatch(action);
+    },
+    suaNguoiDung: (suaNDClicked) => {
+      const action = {
+        type: SUA_NGUOI_DUNG,
+        tkNDSua: suaNDClicked,
       };
       dispatch(action);
     },
